@@ -1,0 +1,2 @@
+restrict string values to enum
+validate incoming data

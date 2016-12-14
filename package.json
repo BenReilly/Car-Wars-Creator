@@ -1,0 +1,21 @@
+{
+  "name": "carbuilder",
+  "version": "1.0.0",
+  "description": "A calculator for space, weight, and costs for Car Wars vehicles.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": {
+      "name": "Surly Squirrel",
+      "email": "ericjehlers@gmail.com"},
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "express": "4.14.0",
+    "lodash": "^4.17.2",
+    "mongoose": "^4.7.2",
+    "redis": "^2.6.3"
+  }
+}
