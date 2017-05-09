@@ -11,42 +11,35 @@ const UserSchema = new Schema({
         required: true,
         index: { unique: true }
     },
-    salt: {
-        type: String,
-        required: true
-    },
     password: {
-        type: String,
+        type: Buffer,
         required: true
     },
-    cars: [ObjectId]
+    cars: [ObjectId],
+    admin: {
+        type: Boolean,
+        required: false
+    }
 });
 
 UserSchema.pre('save', function(next) {
     let user = this,
-        buf,
-        passwordBuf,
-        hash;
-
-    // only hash the password if it has been modified (or is new)
-    if (!user.isModified('password')) return next();
-
-    // generate a salt
-    buf = new Buffer(sodium.crypto_pwhash_STRBYTES);
-    sodium.randombytes_buf(buf, sodium.crypto_pwhash_STRBYTES);
-    // add salt to the password
-    passwordBuf = Buffer.from(user.password + buf.toString());
-    // hash them
-    hash = sodium.crypto_pwhash_str(passwordBuf, sodium.crypto_pwhash_OPSLIMIT_INTERACTIVE, sodium.crypto_pwhash_MEMLIMIT_INTERACTIVE);
-    // assign to the model
-    user.salt = salt;
+        passwordBuf = Buffer.from(user.password, 'ascii'),
+        hash = sodium.crypto_pwhash_str(passwordBuf, sodium.crypto_pwhash_OPSLIMIT_INTERACTIVE, sodium.crypto_pwhash_MEMLIMIT_INTERACTIVE);
     user.password = hash;
     next();
 });
 
-UserSchema.methods.comparePassword = function(candidatePassword, targetUser) {
-    let saltedCandidate = candidatePassword + targetUser.salt;
-    if (sodium.crypto_pwhash_str_verify(saltedCandidate, targetUser.password)) {
+UserSchema.methods.comparePassword = function(candidatePassword) {
+    let candidateBuf = Buffer.from(candidatePassword, 'ascii');
+    if (sodium.crypto_pwhash_str_verify(this.password, candidateBuf)) {
+        return true;
+    };
+    return false;
+};
+
+UserSchema.methods.isAdmin = function() {
+    if (this.hasOwnProperty('admin') && this.admin === true) {
         return true;
     };
     return false;
