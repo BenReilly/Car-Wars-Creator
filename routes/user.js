@@ -31,6 +31,7 @@ module.exports = function(app) {
             .exec(function(err, user) {
                 if (err) {
                     res.json({ info: 'i don\'t know that guy', error: err });
+                    return;
                 };
                 if (user) {
                     let returnUser = {
@@ -49,10 +50,10 @@ module.exports = function(app) {
     app.post('/user/isvalid', function(req, res) {
         User.find({ username: req.body.username }, function(err, user) {
             if (err) {
-                res.json({ info: 'login failed', error: err });
+                res.status(403).json({ info: 'invalid username/password combo', error: err });
             };
             if (user[0]) {
-                if (user[0].comparePassword(req.body.password)) {
+                if (!!req.body.password && user[0].comparePassword(req.body.password)) {
                     // make a token
                     let tokenData = jwt.sign({
                             uid: user[0]._id,
@@ -60,16 +61,18 @@ module.exports = function(app) {
                         },
                         consts.SECRET, { expiresIn: '4h' }
                     );
-                    res.json({
-                        info: 'login successful',
-                        token: tokenData
-                    });
+                    res.status(200)
+                        .set({ token: tokenData })
+                        .json({
+                            userid: user[0]._id,
+                            info: 'login successful'
+                        });
                 } else {
                     // login fail
-                    res.json({ info: 'login failed bad password' });
+                    res.status(403).json({ info: 'invalid username/password combo' });
                 };
             } else {
-                res.json({ info: 'login failed bad user' });
+                res.status(403).json({ info: 'invalid username/password combo' });
             };
         });
     });
@@ -77,9 +80,18 @@ module.exports = function(app) {
     // write
     app.post('/user', function(req, res) {
         let newUser = new User(req.body);
+        //console.log(User.findOne({ 'username': newUser.username }));
+        if (!newUser.username || newUser.username.length < 1 || typeof newUser.username !== "string") {
+            res.status(400).json({ info: 'you must have a username' });
+            return;
+        }
+        if (!newUser.password || newUser.password.length < 1) {
+            res.status(400).json({ info: 'you must create a password' });
+            return;
+        }
         newUser.save(function(err) {
             if (err) {
-                res.json({ info: 'user creation failed', error: err });
+                res.status(400).json({ info: 'user creation failed', error: err });
                 return;
             };
             res.json({ info: 'it\'s alive!' });
@@ -89,7 +101,7 @@ module.exports = function(app) {
     // update
     app.put('/user/:id', function(req, res) {
         if (req.params.id !== req.decoded.uid && req.decoded.isAdmin !== true) {
-            res.json({ info: 'you can only edit yourself' });
+            res.status(403).json({ info: 'you can only edit yourself' });
             return;
         };
         User.findById(req.params.id, function(err, user) {
@@ -119,7 +131,8 @@ module.exports = function(app) {
     // destroy
     app.delete('/user/:id', function(req, res) {
         if (req.params.id !== req.decoded.uid && req.decoded.isAdmin !== true) {
-            res.json({ info: 'you cannot delete other users' });
+            res.status(403).json({ info: 'you cannot delete other users' });
+            return;
         };
         User.findByIdAndRemove(req.params.id, function(err) {
             if (err) {

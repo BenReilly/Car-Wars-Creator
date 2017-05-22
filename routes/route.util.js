@@ -10,7 +10,7 @@ module.exports = function(app) {
         };
         jwt.verify(req.get('token'), consts.SECRET, function(err, decoded) {
             if (err) {
-                res.send({ info: 'invalid token', data: err });
+                res.status(403).send({ info: 'invalid token', data: err });
             } else {
                 req.decoded = decoded;
                 next();
