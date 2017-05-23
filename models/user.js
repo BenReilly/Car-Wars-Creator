@@ -2,8 +2,6 @@ const mongoose = require('mongoose'),
     ObjectId = mongoose.Schema.Types.ObjectId,
     Schema = mongoose.Schema,
     sodium = require('sodium').api;
-//    aes = cryptoJs.aes,
-//    sha = cryptoJs.sha256;
 
 const UserSchema = new Schema({
     username: {
@@ -39,7 +37,7 @@ UserSchema.methods.comparePassword = function(candidatePassword) {
 };
 
 UserSchema.methods.isAdmin = function() {
-    if (this.hasOwnProperty('admin') && this.admin === true) {
+    if (this.admin === true) {
         return true;
     };
     return false;
