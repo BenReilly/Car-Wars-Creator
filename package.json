@@ -1,10 +1,13 @@
 {
     "name": "carbuilder",
     "version": "1.0.0",
+    "author": "Eric J Ehlers <ericjehlers@gmail.com>",
     "description": "A calculator for space, weight, and costs for Car Wars vehicles.",
+    "license": "UNLICENSED",
     "main": "index.js",
     "scripts": {
-        "test": "mocha --recursive"
+        "test": "mocha --recursive",
+        "seeds": "node seeds/seeds"
     },
     "keywords": [],
     "author": {

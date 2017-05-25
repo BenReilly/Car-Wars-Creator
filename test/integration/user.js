@@ -1,15 +1,16 @@
 'use strict';
 
-let chai = require('chai'),
+const chai = require('chai'),
     chaiHttp = require('chai-http'),
     should = chai.should(),
     expect = chai.expect,
     server = require('../../index'),
-    vToken, vId,
     vuser = 'testUser1',
     vpass = 'aValidPass',
     iuser = 'speca',
-    ipass = 'monky',
+    ipass = 'monky';
+
+let vToken, vId,
     anotherUser;
 
 chai.use(chaiHttp);

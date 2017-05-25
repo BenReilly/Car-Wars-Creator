@@ -1,8 +1,7 @@
 'use strict';
 
-let expect = require('chai').expect,
+const expect = require('chai').expect,
     user = require('../../models/user'),
-    //sinon = require('sinon'),
     sodium = require('sodium').api;
 
 describe('User Model', () => {
@@ -13,7 +12,7 @@ describe('User Model', () => {
         u.validate((err) => {
             expect(err.errors.username).to.exist;
             expect(err.errors.password).not.to.exist;
-            done()
+            done();
         });
     });
     it('should be invalid if password is empty', (done) => {
@@ -23,7 +22,7 @@ describe('User Model', () => {
         u.validate((err) => {
             expect(err.errors.username).not.to.exist;
             expect(err.errors.password).to.exist;
-            done()
+            done();
         });
     });
     it('should be valid if it has a username and a password', (done) => {

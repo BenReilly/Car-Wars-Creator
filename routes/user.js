@@ -1,7 +1,7 @@
-const _ = require('lodash');
-const User = require('../models/user.js');
-const consts = require('../consts/consts.js');
-const jwt = require('jsonwebtoken');
+const _ = require('lodash'),
+    User = require('../models/user.js');
+consts = require('../consts/consts.js');
+jwt = require('jsonwebtoken');
 
 module.exports = function(app) {
 
