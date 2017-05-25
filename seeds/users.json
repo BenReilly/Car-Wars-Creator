@@ -1,0 +1,14 @@
+{
+    "collectionName": "users",
+    "pathToModel": "../models/user",
+    "content": [{
+            "username": "platypus",
+            "password": "password",
+            "admin": true
+        },
+        {
+            "username": "thelemur",
+            "password": "password"
+        }
+    ]
+}

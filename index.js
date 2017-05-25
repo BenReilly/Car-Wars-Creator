@@ -1,10 +1,11 @@
-let express = require('express'),
+const express = require('express'),
     app = express(),
     bodyParser = require('body-parser'),
     mongoose = require('mongoose'),
-    sodium = require('sodium').api;
+    sodium = require('sodium').api,
+    config = require('./config');
 
-mongoose.connect('mongodb://localhost/carwars');
+mongoose.connect(config.mongodb);
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
@@ -16,8 +17,8 @@ let utils = require('./routes/route.util.js')(app),
     users = require('./routes/user.js')(app);
 
 if (!module.parent) {
-    app.listen(3001, function() {
-        console.log('Server running at http://127.0.0.1:3001/');
+    app.listen(config.port, function() {
+        console.log('Server running at http://127.0.0.1:' + config.port + '/');
     });
 }
 

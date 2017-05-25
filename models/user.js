@@ -2,8 +2,6 @@ const mongoose = require('mongoose'),
     ObjectId = mongoose.Schema.Types.ObjectId,
     Schema = mongoose.Schema,
     sodium = require('sodium').api;
-//    aes = cryptoJs.aes,
-//    sha = cryptoJs.sha256;
 
 const UserSchema = new Schema({
     username: {
@@ -19,6 +17,14 @@ const UserSchema = new Schema({
     admin: {
         type: Boolean,
         required: false
+    },
+    createDate: {
+        type: Date,
+        required: false
+    },
+    editDate: {
+        type: Date,
+        required: false
     }
 });
 
@@ -27,6 +33,7 @@ UserSchema.pre('save', function(next) {
         passwordBuf = Buffer.from(user.password, 'ascii'),
         hash = sodium.crypto_pwhash_str(passwordBuf, sodium.crypto_pwhash_OPSLIMIT_INTERACTIVE, sodium.crypto_pwhash_MEMLIMIT_INTERACTIVE);
     user.password = hash;
+    user.createDate = new Date();
     next();
 });
 
@@ -39,7 +46,7 @@ UserSchema.methods.comparePassword = function(candidatePassword) {
 };
 
 UserSchema.methods.isAdmin = function() {
-    if (this.hasOwnProperty('admin') && this.admin === true) {
+    if (this.admin === true) {
         return true;
     };
     return false;
