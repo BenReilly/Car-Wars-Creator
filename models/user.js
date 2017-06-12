@@ -1,3 +1,5 @@
+'use strict';
+
 const mongoose = require('mongoose'),
     ObjectId = mongoose.Schema.Types.ObjectId,
     Schema = mongoose.Schema,
@@ -28,7 +30,7 @@ const UserSchema = new Schema({
     }
 });
 
-UserSchema.pre('save', function(next) {
+UserSchema.pre('save', (next) => {
     let user = this,
         passwordBuf = Buffer.from(user.password, 'ascii'),
         hash = sodium.crypto_pwhash_str(passwordBuf, sodium.crypto_pwhash_OPSLIMIT_INTERACTIVE, sodium.crypto_pwhash_MEMLIMIT_INTERACTIVE);
@@ -37,7 +39,11 @@ UserSchema.pre('save', function(next) {
     next();
 });
 
-UserSchema.methods.comparePassword = function(candidatePassword) {
+UserSchema.methods.comparePassword = (candidatePassword) => {
+    console.log(candidatePassword);
+    console.log(this);
+    console.log(typeof this.password);
+    console.log(this.password);
     let candidateBuf = Buffer.from(candidatePassword, 'ascii');
     if (sodium.crypto_pwhash_str_verify(this.password, candidateBuf)) {
         return true;
@@ -45,7 +51,7 @@ UserSchema.methods.comparePassword = function(candidatePassword) {
     return false;
 };
 
-UserSchema.methods.isAdmin = function() {
+UserSchema.methods.isAdmin = () => {
     if (this.admin === true) {
         return true;
     };

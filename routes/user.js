@@ -1,14 +1,16 @@
+'use strict';
+
 const _ = require('lodash'),
-    User = require('../models/user.js');
-consts = require('../consts/consts.js');
-jwt = require('jsonwebtoken');
+    User = require('../models/user.js'),
+    config = require('../config.js'),
+    jwt = require('jsonwebtoken');
 
 module.exports = function(app) {
 
     const _users = [];
 
     // read
-    app.get('/user', function(req, res) {
+    app.get('/user', (req, res) => {
         User.find()
             .select({ username: 1, cars: 1 })
             .exec(function(err, users) {
@@ -25,7 +27,7 @@ module.exports = function(app) {
     });
 
     // read just one user
-    app.get('/user/:id', function(req, res) {
+    app.get('/user/:id', (req, res) => {
         User.findById(req.params.id)
             .select({ username: 1, cars: 1 })
             .exec(function(err, user) {
@@ -47,7 +49,7 @@ module.exports = function(app) {
     });
 
     // validate 
-    app.post('/user/isvalid', function(req, res) {
+    app.post('/user/isvalid', (req, res) => {
         User.find({ username: req.body.username }, function(err, user) {
             if (err) {
                 res.status(403).json({ info: 'invalid username/password combo', error: err });
@@ -59,7 +61,7 @@ module.exports = function(app) {
                             uid: user[0]._id,
                             isAdmin: user[0].admin || false
                         },
-                        consts.SECRET, { expiresIn: '4h' }
+                        config.SECRET, { expiresIn: '4h' }
                     );
                     res.status(200)
                         .set({ token: tokenData })
@@ -78,9 +80,8 @@ module.exports = function(app) {
     });
 
     // write
-    app.post('/user', function(req, res) {
+    app.post('/user', (req, res) => {
         let newUser = new User(req.body);
-        //console.log(User.findOne({ 'username': newUser.username }));
         if (!newUser.username || newUser.username.length < 1 || typeof newUser.username !== "string") {
             res.status(400).json({ info: 'you must have a username' });
             return;
@@ -99,7 +100,7 @@ module.exports = function(app) {
     });
 
     // update
-    app.put('/user/:id', function(req, res) {
+    app.put('/user/:id', (req, res) => {
         if (req.params.id !== req.decoded.uid && req.decoded.isAdmin !== true) {
             res.status(403).json({ info: 'you can only edit yourself' });
             return;
@@ -129,7 +130,7 @@ module.exports = function(app) {
     });
 
     // destroy
-    app.delete('/user/:id', function(req, res) {
+    app.delete('/user/:id', (req, res) => {
         if (req.params.id !== req.decoded.uid && req.decoded.isAdmin !== true) {
             res.status(403).json({ info: 'you cannot delete other users' });
             return;
