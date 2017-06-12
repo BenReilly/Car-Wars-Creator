@@ -30,7 +30,7 @@ const UserSchema = new Schema({
     }
 });
 
-UserSchema.pre('save', (next) => {
+UserSchema.pre('save', function(next) {
     let user = this,
         passwordBuf = Buffer.from(user.password, 'ascii'),
         hash = sodium.crypto_pwhash_str(passwordBuf, sodium.crypto_pwhash_OPSLIMIT_INTERACTIVE, sodium.crypto_pwhash_MEMLIMIT_INTERACTIVE);
@@ -39,11 +39,7 @@ UserSchema.pre('save', (next) => {
     next();
 });
 
-UserSchema.methods.comparePassword = (candidatePassword) => {
-    console.log(candidatePassword);
-    console.log(this);
-    console.log(typeof this.password);
-    console.log(this.password);
+UserSchema.methods.comparePassword = function(candidatePassword) {
     let candidateBuf = Buffer.from(candidatePassword, 'ascii');
     if (sodium.crypto_pwhash_str_verify(this.password, candidateBuf)) {
         return true;
@@ -51,7 +47,7 @@ UserSchema.methods.comparePassword = (candidatePassword) => {
     return false;
 };
 
-UserSchema.methods.isAdmin = () => {
+UserSchema.methods.isAdmin = function() {
     if (this.admin === true) {
         return true;
     };
