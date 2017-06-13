@@ -1,6 +1,7 @@
 'use strict';
 
 const mongoose = require('mongoose'),
+    config = require('../config'),
     ObjectId = mongoose.Schema.Types.ObjectId,
     Schema = mongoose.Schema;
 
@@ -8,7 +9,7 @@ const BodyTypeSchema = new Schema({
     vehicle: {
         type: String,
         required: true,
-        enum: ['car', 'bike', 'trike']
+        enum: config.vehicles
     },
     type: {
         type: String,
