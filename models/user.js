@@ -1,3 +1,5 @@
+'use strict';
+
 const mongoose = require('mongoose'),
     ObjectId = mongoose.Schema.Types.ObjectId,
     Schema = mongoose.Schema,
