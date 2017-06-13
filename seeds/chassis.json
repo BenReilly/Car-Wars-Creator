@@ -1,1 +1,21 @@
-{ "collectionName": "chassis", "pathToModel": "../models/chassis", "content": [] }
+{
+    "collectionName": "chassis",
+    "pathToModel": "../models/chassis",
+    "content": [{
+        "strength": "light",
+        "weight": -10,
+        "price": -20
+    }, {
+        "strength": "standard",
+        "weight": 0,
+        "price": 0
+    }, {
+        "strength": "heavy",
+        "weight": 10,
+        "price": 50
+    }, {
+        "strength": "extra heavy",
+        "weight": 20,
+        "price": 100
+    }]
+}

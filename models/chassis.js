@@ -5,11 +5,19 @@ const mongoose = require('mongoose'),
     Schema = mongoose.Schema;
 
 const ChassisSchema = new Schema({
-    vehicle: {
+    strength: {
         type: String,
         required: true,
-        enum: config.vehicles
+        enum: ['light', 'standard', 'heavy', 'extra heavy']
     },
+    weight: {
+        type: Number,
+        required: true
+    },
+    price: {
+        type: Number,
+        required: true
+    }
 });
 
 module.exports = mongoose.model('Chassis', ChassisSchema);

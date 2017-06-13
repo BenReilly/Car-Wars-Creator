@@ -16,6 +16,9 @@ module.exports = function(app) {
                 if (bodyType) {
                     res.json({ info: 'got a body', data: bodyType });
                     return;
+                } else {
+                    res.status(500).json({ info: 'body type not found' });
+                    return;
                 };
             });
     });
