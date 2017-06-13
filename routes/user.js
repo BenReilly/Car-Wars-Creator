@@ -82,7 +82,6 @@ module.exports = function(app) {
     // write
     app.post('/user', (req, res) => {
         let newUser = new User(req.body);
-        console.log(newUser);
         if (!newUser.username || newUser.username.length < 1 || typeof newUser.username !== "string") {
             res.status(400).json({ info: 'you must have a username' });
             return;
