@@ -136,4 +136,4 @@ describe('Body Type GET', () => {
                 });
         });
     });
-})
+});
