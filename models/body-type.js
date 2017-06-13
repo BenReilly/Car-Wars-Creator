@@ -61,6 +61,10 @@ const BodyTypeSchema = new Schema({
     armorWeight: {
         type: Number,
         required: true
+    },
+    hcModifier: {
+        type: Number,
+        required: false
     }
 });
 

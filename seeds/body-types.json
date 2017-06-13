@@ -10,7 +10,8 @@
         "space": 7,
         "cargoSpace": 0,
         "armorCost": 11,
-        "armorWeight": 5
+        "armorWeight": 5,
+        "hcModifier": 1
     }, {
         "vehicle": "car",
         "type": "compact",
@@ -90,7 +91,8 @@
         "space": 24,
         "cargoSpace": 6,
         "armorCost": 30,
-        "armorWeight": 14
+        "armorWeight": 14,
+        "hcModifier": -1
     }, {
         "vehicle": "bike",
         "type": "light cycle",
