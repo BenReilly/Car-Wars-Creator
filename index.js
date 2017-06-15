@@ -16,7 +16,8 @@ let utils = require('./routes/route.util.js')(app),
     cars = require('./routes/car.js')(app),
     users = require('./routes/user.js')(app),
     bodyTypes = require('./routes/body-type.js')(app),
-    chassis = require('./routes/chassis.js')(app);
+    chassis = require('./routes/chassis.js')(app),
+    suspension = require('./routes/suspension.js')(app);
 
 if (!module.parent) {
     app.listen(config.port, function() {
