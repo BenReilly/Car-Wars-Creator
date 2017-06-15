@@ -7,7 +7,6 @@ module.exports = function(app) {
 
     // read one chassis
     app.get('/chassis/:chassis', (req, res) => {
-        console.log(req.params.chassis);
         Chassis.findOne({ 'strength': req.params.chassis })
             .exec((err, chassis) => {
                 if (err) {

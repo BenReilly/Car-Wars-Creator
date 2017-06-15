@@ -1,0 +1,45 @@
+{
+    "collectionName": "suspensions",
+    "pathToModel": "../models/suspension",
+    "content": [{
+        "vehicle": "car",
+        "suspensionType": "light",
+        "price": 0,
+        "hc": 1
+    }, {
+        "vehicle": "car",
+        "suspensionType": "improved",
+        "price": 1,
+        "hc": 2
+    }, {
+        "vehicle": "car",
+        "suspensionType": "heavy",
+        "price": 1.5,
+        "hc": 3
+    }, {
+        "vehicle": "car",
+        "suspensionType": "off-road",
+        "price": 5,
+        "hc": 2
+    }, {
+        "vehicle": "bike",
+        "suspensionType": "light",
+        "price": 0,
+        "hc": 0
+    }, {
+        "vehicle": "bike",
+        "suspensionType": "improved",
+        "price": 1,
+        "hc": 1
+    }, {
+        "vehicle": "bike",
+        "suspensionType": "heavy",
+        "price": 2,
+        "hc": 2
+    }, {
+        "vehicle": "bike",
+        "suspensionType": "off-road",
+        "price": 3,
+        "hc": 2
+    }]
+}
