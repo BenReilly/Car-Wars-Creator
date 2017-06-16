@@ -8,7 +8,7 @@ const chai = require('chai'),
 
 let vToken
 
-describe('Suspension GET', () => {
+describe('Power Plant GET', () => {
     beforeEach((done) => {
         chai.request(server)
             .post('/user/isValid')
@@ -22,76 +22,76 @@ describe('Suspension GET', () => {
                 done();
             });
     });
-    it('has a route for getting a single suspension', (done) => {
+    it('has a route for getting a single power plant', (done) => {
         chai.request(server)
-            .get('/suspensions/bike/improved')
+            .get('/power-plants/small%20cycle')
             .set({
                 token: vToken
             })
             .end((err, res) => {
                 res.should.have.status(200);
-                expect(res.body).to.have.property('info', 'you are suspended');
+                expect(res.body).to.have.property('info', 'you got the power');
                 expect(res.body).to.have.property('data');
-                expect(res.body.data.hc).to.equal(1);
+                expect(res.body.data.spaces).to.equal(1);
                 done();
             });
     });
-    it('has a route for getting suspensions by vehicle', (done) => {
+    it('has a route for getting power plants by vehicle', (done) => {
         chai.request(server)
-            .get('/suspensions/?vehicle=car')
+            .get('/power-plants/?vehicle=car')
             .set({
                 token: vToken
             })
             .end((err, res) => {
                 res.should.have.status(200);
-                expect(res.body).to.have.property('info', 'got suspensions');
-                expect(res.body.data.length).to.equal(4);
+                expect(res.body).to.have.property('info', 'got power plants');
+                expect(res.body.data.length).to.equal(6);
                 done();
             });
     });
     it('returns an error when given invalid values', (done) => {
         chai.request(server)
-            .get('/suspensions/?vehicle=pogo')
+            .get('/power-plants/?vehicle=pogo')
             .set({
                 token: vToken
             })
             .end((err, res) => {
                 res.should.have.status(500);
-                expect(res.body).to.have.property('info', 'one or more suspension properities or values are invalid');
+                expect(res.body).to.have.property('info', 'one or more power plant properities or values are invalid');
                 expect(res.body).not.to.have.property('data');
                 done();
             });
     });
-    it('returns an error when given invalid suspension properties', (done) => {
+    it('returns an error when given invalid power plant properties', (done) => {
         chai.request(server)
-            .get('/suspensions/?spider=monkey')
+            .get('/power-plants/?spider=monkey')
             .set({
                 token: vToken
             })
             .end((err, res) => {
                 res.should.have.status(500);
-                expect(res.body).to.have.property('info', 'one or more suspension properities or values are invalid');
+                expect(res.body).to.have.property('info', 'one or more power plant properities or values are invalid');
                 expect(res.body).not.to.have.property('data');
                 done();
             });
     });
-    it('has a route for getting all suspensions', (done) => {
+    it('has a route for getting all power plants', (done) => {
         chai.request(server)
-            .get('/suspensions/')
+            .get('/power-plants/')
             .set({
                 token: vToken
             })
             .end((err, res) => {
                 res.should.have.status(200);
-                expect(res.body).to.have.property('info', 'got suspensions');
-                expect(res.body.data.length).to.equal(8);
+                expect(res.body).to.have.property('info', 'got power plants');
+                expect(res.body.data.length).to.equal(11);
                 done();
             });
     });
     describe('when not authorized', () => {
         it('fails if there is a bad token for single route', (done) => {
             chai.request(server)
-                .get('/suspensions/car/off-road')
+                .get('/power-plants/thundercat')
                 .set({
                     token: 'vToken'
                 })
@@ -104,7 +104,7 @@ describe('Suspension GET', () => {
         });
         it('fails if there is a bad token for multi route', (done) => {
             chai.request(server)
-                .get('/suspensions/')
+                .get('/power-plants/')
                 .set({
                     token: 'vToken'
                 })
@@ -117,7 +117,7 @@ describe('Suspension GET', () => {
         });
         it('fails if there is no token for single route', (done) => {
             chai.request(server)
-                .get('/suspensions/car/heavy')
+                .get('/power-plants/super trike')
                 .end((err, res) => {
                     res.should.have.status(403);
                     expect(res.body.data).not.to.be.an('array');
@@ -127,7 +127,7 @@ describe('Suspension GET', () => {
         });
         it('fails if there is no token for multi route', (done) => {
             chai.request(server)
-                .get('/suspensions/')
+                .get('/power-plants/')
                 .end((err, res) => {
                     res.should.have.status(403);
                     expect(res.body.data).not.to.be.an('array');

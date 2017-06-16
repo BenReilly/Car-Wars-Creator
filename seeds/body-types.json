@@ -9,7 +9,7 @@
         "maxLoad": 2300,
         "space": 7,
         "cargoSpace": 0,
-        "armorCost": 11,
+        "armorPrice": 11,
         "armorWeight": 5,
         "hcModifier": 1
     }, {
@@ -20,7 +20,7 @@
         "maxLoad": 3700,
         "space": 10,
         "cargoSpace": 0,
-        "armorCost": 13,
+        "armorPrice": 13,
         "armorWeight": 6
     }, {
         "vehicle": "car",
@@ -30,7 +30,7 @@
         "maxLoad": 4800,
         "space": 13,
         "cargoSpace": 0,
-        "armorCost": 16,
+        "armorPrice": 16,
         "armorWeight": 8
     }, {
         "vehicle": "car",
@@ -40,7 +40,7 @@
         "maxLoad": 5100,
         "space": 16,
         "cargoSpace": 0,
-        "armorCost": 18,
+        "armorPrice": 18,
         "armorWeight": 9
     }, {
         "vehicle": "car",
@@ -50,7 +50,7 @@
         "maxLoad": 5500,
         "space": 19,
         "cargoSpace": 0,
-        "armorCost": 20,
+        "armorPrice": 20,
         "armorWeight": 10
     }, {
         "vehicle": "car",
@@ -60,7 +60,7 @@
         "maxLoad": 5500,
         "space": 14,
         "cargoSpace": 7,
-        "armorCost": 20,
+        "armorPrice": 20,
         "armorWeight": 10
     }, {
         "vehicle": "car",
@@ -70,7 +70,7 @@
         "maxLoad": 6500,
         "space": 13,
         "cargoSpace": 11,
-        "armorCost": 22,
+        "armorPrice": 22,
         "armorWeight": 11
     }, {
         "vehicle": "car",
@@ -80,7 +80,7 @@
         "maxLoad": 6500,
         "space": 17,
         "cargoSpace": 7,
-        "armorCost": 30,
+        "armorPrice": 30,
         "armorWeight": 14
     }, {
         "vehicle": "car",
@@ -90,7 +90,7 @@
         "maxLoad": 6000,
         "space": 24,
         "cargoSpace": 6,
-        "armorCost": 30,
+        "armorPrice": 30,
         "armorWeight": 14,
         "hcModifier": -1
     }, {
@@ -101,7 +101,7 @@
         "maxLoad": 800,
         "space": 4,
         "cargoSpace": 0,
-        "armorCost": 10,
+        "armorPrice": 10,
         "armorWeight": 4
     }, {
         "vehicle": "bike",
@@ -111,7 +111,7 @@
         "maxLoad": 1100,
         "space": 5,
         "cargoSpace": 0,
-        "armorCost": 11,
+        "armorPrice": 11,
         "armorWeight": 5
     }, {
         "vehicle": "bike",
@@ -121,7 +121,7 @@
         "maxLoad": 1300,
         "space": 7,
         "cargoSpace": 0,
-        "armorCost": 12,
+        "armorPrice": 12,
         "armorWeight": 6
     }, {
         "vehicle": "bike",
@@ -131,7 +131,7 @@
         "maxLoad": 400,
         "space": 2,
         "cargoSpace": 0,
-        "armorCost": 5,
+        "armorPrice": 5,
         "armorWeight": 5
     }, {
         "vehicle": "bike",
@@ -141,7 +141,7 @@
         "maxLoad": 750,
         "space": 3,
         "cargoSpace": 0,
-        "armorCost": 5,
+        "armorPrice": 5,
         "armorWeight": 6
     }, {
         "vehicle": "trike",
@@ -151,7 +151,7 @@
         "maxLoad": 1600,
         "space": 8,
         "cargoSpace": 0,
-        "armorCost": 11,
+        "armorPrice": 11,
         "armorWeight": 5
     }, {
         "vehicle": "trike",
@@ -161,7 +161,7 @@
         "maxLoad": 2100,
         "space": 10,
         "cargoSpace": 0,
-        "armorCost": 12,
+        "armorPrice": 12,
         "armorWeight": 6
     }, {
         "vehicle": "trike",
@@ -171,7 +171,7 @@
         "maxLoad": 2800,
         "space": 12,
         "cargoSpace": 0,
-        "armorCost": 14,
+        "armorPrice": 14,
         "armorWeight": 7
     }, {
         "vehicle": "trike",
@@ -181,7 +181,7 @@
         "maxLoad": 3500,
         "space": 14,
         "cargoSpace": 0,
-        "armorCost": 16,
+        "armorPrice": 16,
         "armorWeight": 8
     }]
 }
