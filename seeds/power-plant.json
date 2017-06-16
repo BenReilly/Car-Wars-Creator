@@ -1,0 +1,93 @@
+{
+    "collectionName": "powerPlants",
+    "pathToModel": "../models/power-plant",
+    "content": [{
+        "vehicle": "car",
+        "plant": "small",
+        "price": 500,
+        "weight": 500,
+        "spaces": 3,
+        "dp": 5,
+        "powerFactors": 800
+    }, {
+        "vehicle": "car",
+        "plant": "medium",
+        "price": 1000,
+        "weight": 700,
+        "spaces": 4,
+        "dp": 8,
+        "powerFactors": 1400
+    }, {
+        "vehicle": "car",
+        "plant": "large",
+        "price": 2000,
+        "weight": 900,
+        "spaces": 5,
+        "dp": 10,
+        "powerFactors": 2000
+    }, {
+        "vehicle": "car",
+        "plant": "super",
+        "price": 3000,
+        "weight": 1100,
+        "spaces": 6,
+        "dp": 12,
+        "powerFactors": 1600
+    }, {
+        "vehicle": "car",
+        "plant": "sport",
+        "price": 6000,
+        "weight": 1000,
+        "spaces": 6,
+        "dp": 12,
+        "powerFactors": 3000
+    }, {
+        "vehicle": "car",
+        "plant": "thundercat",
+        "price": 12000,
+        "weight": 2000,
+        "spaces": 8,
+        "dp": 15,
+        "powerFactors": 6700
+    }, {
+        "vehicle": "bike",
+        "plant": "small cycle",
+        "price": 500,
+        "weight": 100,
+        "spaces": 1,
+        "dp": 2,
+        "powerFactors": 400
+    }, {
+        "vehicle": "bike",
+        "plant": "medium cycle",
+        "price": 1000,
+        "weight": 150,
+        "spaces": 1,
+        "dp": 3,
+        "powerFactors": 600
+    }, {
+        "vehicle": "bike",
+        "plant": "large cycle",
+        "price": 1500,
+        "weight": 175,
+        "spaces": 2,
+        "dp": 4,
+        "powerFactors": 800
+    }, {
+        "vehicle": "bike",
+        "plant": "super cycle",
+        "price": 2000,
+        "weight": 200,
+        "spaces": 2,
+        "dp": 5,
+        "powerFactors": 1000
+    }, {
+        "vehicle": "bike",
+        "plant": "super trike",
+        "price": 3000,
+        "weight": 250,
+        "spaces": 3,
+        "dp": 6,
+        "powerFactors": 1200
+    }]
+}

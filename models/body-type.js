@@ -54,7 +54,7 @@ const BodyTypeSchema = new Schema({
         type: Number,
         required: true
     },
-    armorCost: {
+    armorPrice: {
         type: Number,
         required: true
     },

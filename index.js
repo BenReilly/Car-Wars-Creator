@@ -17,7 +17,8 @@ let utils = require('./routes/route.util.js')(app),
     users = require('./routes/user.js')(app),
     bodyTypes = require('./routes/body-type.js')(app),
     chassis = require('./routes/chassis.js')(app),
-    suspension = require('./routes/suspension.js')(app);
+    suspension = require('./routes/suspension.js')(app),
+    powerPlant = require('./routes/power-plant.js')(app);
 
 if (!module.parent) {
     app.listen(config.port, function() {
