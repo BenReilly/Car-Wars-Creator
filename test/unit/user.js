@@ -2,9 +2,10 @@
 
 const expect = require('chai').expect,
     user = require('../../models/user'),
-    sodium = require('sodium').api;
+    config = require('../../config'),
+    bcrypt = require('bcryptjs');
 
-describe('User Model', () => {
+describe.only('User Model', () => {
     it('should be invalid if username is empty', (done) => {
         let u = new user({
             password: new Buffer.from('astring')
@@ -36,10 +37,10 @@ describe('User Model', () => {
         });
     });
     it('should authenticate passwords', (done) => {
-        let passwordBuf = Buffer.from('astring', 'ascii'),
+        let salt = bcrypt.genSaltSync(10),
             u = new user({
                 username: 'someUser',
-                password: sodium.crypto_pwhash_str(passwordBuf, sodium.crypto_pwhash_OPSLIMIT_INTERACTIVE, sodium.crypto_pwhash_MEMLIMIT_INTERACTIVE)
+                password: bcrypt.hashSync('astring', salt)
             });
         expect(u.comparePassword('astring')).to.be.true;
         expect(u.comparePassword('badstring')).to.be.false;
