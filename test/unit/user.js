@@ -5,7 +5,7 @@ const expect = require('chai').expect,
     config = require('../../config'),
     bcrypt = require('bcryptjs');
 
-describe.only('User Model', () => {
+describe('User Model', () => {
     it('should be invalid if username is empty', (done) => {
         let u = new user({
             password: new Buffer.from('astring')

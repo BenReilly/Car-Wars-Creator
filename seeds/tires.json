@@ -1,22 +1,22 @@
 {
     "collectionName": "tires",
-    "pathToModel": "../models/suspension",
+    "pathToModel": "../models/tire",
     "content": [{
-        "tire": "standarad",
+        "tire": "standard",
         "price": 50,
         "weight": 30,
-        "dp": 4 
-    },{
+        "dp": 4
+    }, {
         "tire": "heavy-duty",
         "price": 100,
         "weight": 40,
         "dp": 6
-    },{
+    }, {
         "tire": "puncture-resistant",
         "price": 200,
         "weight": 50,
         "dp": 9
-    },{
+    }, {
         "tire": "solid",
         "price": 500,
         "weight": 75,

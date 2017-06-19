@@ -13,7 +13,7 @@ const UserSchema = new Schema({
         index: { unique: true }
     },
     password: {
-        type: Buffer,
+        type: String,
         required: true
     },
     cars: [ObjectId],

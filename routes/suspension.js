@@ -9,7 +9,7 @@ module.exports = function(app) {
     app.get('/suspensions/:vehicle/:suspensionType', (req, res) => {
         Suspension.findOne({
                 'vehicle': req.params.vehicle,
-                'type': req.param.suspensionType
+                'suspensionType': req.params.suspensionType
             })
             .exec((err, suspension) => {
                 if (err) {
