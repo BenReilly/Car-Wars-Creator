@@ -7,5 +7,6 @@ module.exports = {
     vehicles: ['car', 'bike', 'trike'],
     carFacing: ['f', 'r', 'l', 'b', 't', 'u'],
     tirePosition: ['fl', 'fr', 'bl', 'br'],
-    bikeTirePosition: ['f', 'b']
+    bikeTirePosition: ['f', 'b'],
+    tireModSequence: ['steelbelting', 'radials', 'fireproofing']
 }
