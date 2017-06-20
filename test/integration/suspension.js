@@ -29,7 +29,6 @@ describe('Suspension GET', () => {
                 token: vToken
             })
             .end((err, res) => {
-                console.log(res.body.info);
                 res.should.have.status(200);
                 expect(res.body).to.have.property('info', 'you are suspended');
                 expect(res.body).to.have.property('data');

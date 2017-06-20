@@ -32,7 +32,7 @@ describe('Tire GET', () => {
                 res.should.have.status(200);
                 expect(res.body).to.have.property('info', 'you are tired');
                 expect(res.body).to.have.property('data');
-                expect(res.body.data.hc).to.equal(1);
+                expect(res.body.data.dp).to.equal(6);
                 done();
             });
     });
@@ -75,7 +75,7 @@ describe('Tire GET', () => {
                 done();
             });
     });
-    it('has a route for getting all suspensions', (done) => {
+    it('has a route for getting all tires', (done) => {
         chai.request(server)
             .get('/tires/')
             .set({

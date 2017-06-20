@@ -3,12 +3,12 @@
 const Tire = require('../models/tire.js');
 
 module.exports = function(app) {
-    const _suspensions = [];
+    const _tires = [];
 
-    // read one suspension
+    // read one tire
     app.get('/tires/:tire', (req, res) => {
         Tire.findOne({
-                'tire': req.param.tire
+                'tire': req.params.tire
             })
             .exec((err, tire) => {
                 if (err) {
@@ -25,9 +25,9 @@ module.exports = function(app) {
             });
     });
 
-    // read multiple suspensions
+    // read multiple tires
     app.get('/tires', (req, res) => {
-        Suspension.find(req.query)
+        Tire.find(req.query)
             .exec((err, tires) => {
                 if (err) {
                     res.status(500).json({ info: 'could not match tires', error: err });
