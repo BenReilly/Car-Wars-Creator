@@ -3,7 +3,8 @@
 const mongoose = require('mongoose'),
     ObjectId = mongoose.Schema.Types.ObjectId,
     Schema = mongoose.Schema,
-    sodium = require('sodium').api;
+    config = require('../config'),
+    bcrypt = require('bcryptjs');
 
 const UserSchema = new Schema({
     username: {
@@ -12,7 +13,7 @@ const UserSchema = new Schema({
         index: { unique: true }
     },
     password: {
-        type: Buffer,
+        type: String,
         required: true
     },
     cars: [ObjectId],
@@ -32,16 +33,15 @@ const UserSchema = new Schema({
 
 UserSchema.pre('save', function(next) {
     let user = this,
-        passwordBuf = Buffer.from(user.password, 'ascii'),
-        hash = sodium.crypto_pwhash_str(passwordBuf, sodium.crypto_pwhash_OPSLIMIT_INTERACTIVE, sodium.crypto_pwhash_MEMLIMIT_INTERACTIVE);
+        salt = bcrypt.genSaltSync(10),
+        hash = bcrypt.hashSync(this.password, salt);
     user.password = hash;
     user.createDate = new Date();
     next();
 });
 
 UserSchema.methods.comparePassword = function(candidatePassword) {
-    let candidateBuf = Buffer.from(candidatePassword, 'ascii');
-    if (sodium.crypto_pwhash_str_verify(this.password, candidateBuf)) {
+    if (bcrypt.compareSync(candidatePassword, this.password)) {
         return true;
     };
     return false;

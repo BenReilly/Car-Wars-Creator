@@ -1,28 +1,27 @@
 {
     "name": "carbuilder",
     "version": "1.0.0",
-    "author": "Eric J Ehlers <ericjehlers@gmail.com>",
+    "author": {
+        "name": "Surly Squirrel",
+        "email": "ericjehlers@gmail.com"
+    },
     "description": "A calculator for space, weight, and costs for Car Wars vehicles.",
-    "license": "UNLICENSED",
+    "license": "ISC",
     "main": "index.js",
     "scripts": {
         "test": "mocha --recursive",
         "seeds": "node seeds/seeds"
     },
     "keywords": [],
-    "author": {
-        "name": "Surly Squirrel",
-        "email": "ericjehlers@gmail.com"
-    },
-    "license": "ISC",
     "dependencies": {
+        "bcryptjs": "^2.4.3",
         "body-parser": "^1.15.2",
         "express": "^4.14.0",
         "jsonwebtoken": "^7.3.0",
         "lodash": "^4.17.4",
         "mongoose": "^4.7.7",
         "redis": "^2.6.5",
-        "sodium": "^2.0.1"
+        "save": "^2.3.1"
     },
     "devDependencies": {
         "chai": "^3.5.0",

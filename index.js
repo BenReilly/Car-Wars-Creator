@@ -2,7 +2,6 @@ const express = require('express'),
     app = express(),
     bodyParser = require('body-parser'),
     mongoose = require('mongoose'),
-    sodium = require('sodium').api,
     config = require('./config');
 
 mongoose.connect(config.mongodb);
@@ -18,7 +17,9 @@ let utils = require('./routes/route.util.js')(app),
     bodyTypes = require('./routes/body-type.js')(app),
     chassis = require('./routes/chassis.js')(app),
     suspension = require('./routes/suspension.js')(app),
-    powerPlant = require('./routes/power-plant.js')(app);
+    powerPlant = require('./routes/power-plant.js')(app),
+    tires = require('./routes/tire.js')(app),
+    tireMod = require('./routes/tire-mod.js')(app);
 
 if (!module.parent) {
     app.listen(config.port, function() {

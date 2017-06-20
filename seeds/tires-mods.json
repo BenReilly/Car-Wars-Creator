@@ -1,0 +1,26 @@
+{
+    "collectionName": "tiremods",
+    "pathToModel": "../models/tire-mod",
+    "content": [{
+        "mod": "steelbelting",
+        "price": 50,
+        "weight": "50%",
+        "dp": "125%"
+    }, {
+        "mod": "radials",
+        "price": 150,
+        "weight": "20%",
+        "dp": "-1",
+        "bonus": "+1 to HC"
+    }, {
+        "mod": "off-road",
+        "price": 20,
+        "weight": "+5",
+        "bonus": "+1 HC when off-road"
+    }, {
+        "mod": "fireproofing",
+        "price": 100,
+        "weight": "0",
+        "bonus": "no damage from fire"
+    }]
+}
