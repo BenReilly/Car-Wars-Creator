@@ -1,0 +1,40 @@
+{
+    "collectionName": "armor",
+    "pathToModel": "../models/armor",
+    "content": [{
+        "armor": "fireproof",
+        "material": "plastic",
+        "price": 200,
+        "weight": 100,
+        "bonus": "cannot catch fire",
+        "repairPrice": 200
+    }, {
+        "armor": "laser-reflective",
+        "material": "plastic",
+        "price": 110,
+        "weight": 110,
+        "bonus": "half damage and no fire modifiers from lasers",
+        "repairPrice": 200
+    }, {
+        "armor": "laser-reflective fireproof",
+        "material": "plastic",
+        "price": 250,
+        "weight": 110,
+        "bonus": "half damage from lasers; cannot catch fire",
+        "repairPrice": 400
+    }, {
+        "armor": "metal",
+        "material": "metal",
+        "price": 250,
+        "weight": 500,
+        "bonus": "cannot catch fire; non-ablative",
+        "repairPrice": 100
+    }, {
+        "armor": "laser-reflective metal",
+        "material": "metal",
+        "price": 260,
+        "weight": 500,
+        "bonus": "half damage from lasers; cannot catch fire; non-ablative",
+        "repairPrice": 100
+    }]
+}
