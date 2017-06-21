@@ -3,7 +3,6 @@
 const BodyType = require('../models/body-type.js');
 
 module.exports = function(app) {
-    const _bodyTypes = [];
 
     // read one body
     app.get('/body-types/:bodytype', (req, res) => {

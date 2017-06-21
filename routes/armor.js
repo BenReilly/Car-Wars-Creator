@@ -3,7 +3,6 @@
 const Armor = require('../models/armor.js');
 
 module.exports = function(app) {
-    const _bodyTypes = [];
 
     // read one body
     app.get('/armor/:armor', (req, res) => {

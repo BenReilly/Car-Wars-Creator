@@ -7,7 +7,7 @@ const _ = require('lodash'),
 
 module.exports = function(app) {
 
-    const _users = [];
+    let _users = [];
 
     // read
     app.get('/user', (req, res) => {

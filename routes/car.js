@@ -1,9 +1,6 @@
-const _ = require('lodash');
 const Car = require('../models/car.js');
 
 module.exports = function(app) {
-
-    _cars = [];
 
     /* Read */
     app.get('/car', function(req, res) {

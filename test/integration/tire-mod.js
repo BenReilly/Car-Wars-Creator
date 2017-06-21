@@ -6,7 +6,7 @@ const chai = require('chai'),
     expect = chai.expect,
     server = require('../../index');
 
-let vToken
+let vToken;
 
 describe('Tire Mod GET', () => {
     beforeEach((done) => {
@@ -29,7 +29,6 @@ describe('Tire Mod GET', () => {
                 token: vToken
             })
             .end((err, res) => {
-                console.log(res.body.info);
                 res.should.have.status(200);
                 expect(res.body).to.have.property('info', 'you are modified');
                 expect(res.body).to.have.property('data');
@@ -88,53 +87,5 @@ describe('Tire Mod GET', () => {
                 expect(res.body.data.length).to.equal(4);
                 done();
             });
-    });
-    describe('when not authorized', () => {
-        it('fails if there is a bad token for single route', (done) => {
-            chai.request(server)
-                .get('/tires/solid')
-                .set({
-                    token: 'vToken'
-                })
-                .end((err, res) => {
-                    res.should.have.status(403);
-                    expect(res.body.data).not.to.be.an('array');
-                    expect(res.body).to.have.property('info', 'invalid token');
-                    done();
-                });
-        });
-        it('fails if there is a bad token for multi route', (done) => {
-            chai.request(server)
-                .get('/tires/')
-                .set({
-                    token: 'vToken'
-                })
-                .end((err, res) => {
-                    res.should.have.status(403);
-                    expect(res.body.data).not.to.be.an('array');
-                    expect(res.body).to.have.property('info', 'invalid token');
-                    done();
-                });
-        });
-        it('fails if there is no token for single route', (done) => {
-            chai.request(server)
-                .get('/tires/puncture-resistant')
-                .end((err, res) => {
-                    res.should.have.status(403);
-                    expect(res.body.data).not.to.be.an('array');
-                    expect(res.body).to.have.property('info', 'invalid token');
-                    done();
-                });
-        });
-        it('fails if there is no token for multi route', (done) => {
-            chai.request(server)
-                .get('/tires/')
-                .end((err, res) => {
-                    res.should.have.status(403);
-                    expect(res.body.data).not.to.be.an('array');
-                    expect(res.body).to.have.property('info', 'invalid token');
-                    done();
-                });
-        });
     });
 });
