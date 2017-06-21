@@ -3,7 +3,6 @@
 const PowerPlant = require('../models/power-plant.js');
 
 module.exports = function(app) {
-    const _powerPlant = [];
 
     // read one power plant
     app.get('/power-plants/:powerPlant', (req, res) => {

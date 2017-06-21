@@ -3,7 +3,6 @@
 const Tire = require('../models/tire.js');
 
 module.exports = function(app) {
-    const _tires = [];
 
     // read one tire
     app.get('/tires/:tire', (req, res) => {

@@ -157,162 +157,107 @@ describe('Authentication', () => {
 });
 
 describe('user GET', () => {
-    describe('when authorized', () => {
-        it('has a route for getting multiple users', (done) => {
-            chai.request(server)
-                .get('/user')
-                .set({
-                    token: vToken
-                })
-                .end((err, res) => {
-                    res.should.have.status(200);
-                    expect(res.body.data).to.be.an('array');
-                    expect(res.body).to.have.property('info', 'i got you some users');
-                    anotherUser = res.body.data[0].userid;
-                    done();
-                });
-        });
-        it('has a route for getting a single user by id', (done) => {
-            chai.request(server)
-                .get('/user/' + vId)
-                .set({
-                    token: vToken
-                })
-                .end((err, res) => {
-                    res.should.have.status(200);
-                    expect(res.body).to.have.property('info', 'here\'s your guy');
-                    expect(res.body.data).to.have.property('id', vId);
-                    expect(res.body.data).to.have.property('username', vuser);
-                    expect(res.body.data.cars).to.be.an('array');
-                    done();
-                });
-        });
-        it('returns an error when given an invalid ID', (done) => {
-            chai.request(server)
-                .get('/user/invalidId')
-                .set({
-                    token: vToken
-                })
-                .end((err, res) => {
-                    res.should.have.status(200);
-                    expect(res.body).to.have.property('info', 'i don\'t know that guy');
-                    expect(res.body).not.to.have.property('data');
-                    expect(res.body).to.have.property('error');
-                    done();
-                });
-        });
+    it('has a route for getting multiple users', (done) => {
+        chai.request(server)
+            .get('/user')
+            .set({
+                token: vToken
+            })
+            .end((err, res) => {
+                res.should.have.status(200);
+                expect(res.body.data).to.be.an('array');
+                expect(res.body).to.have.property('info', 'i got you some users');
+                anotherUser = res.body.data[0].userid;
+                done();
+            });
     });
-    describe('when not authorized', () => {
-        it('returns an error when getting multiple users', (done) => {
-            chai.request(server)
-                .get('/user')
-                .end((err, res) => {
-                    res.should.have.status(403);
-                    expect(res.body.data).not.to.be.an('array');
-                    expect(res.body).to.have.property('info', 'invalid token');
-                    done();
-                });
-        });
-        it('returns an error when getting a single user', (done) => {
-            chai.request(server)
-                .get('/user/' + vId)
-                .end((err, res) => {
-                    res.should.have.status(403);
-                    expect(res.body.data).not.to.have.property('id');
-                    expect(res.body.data).not.to.have.property('username');
-                    expect(res.body.data).not.to.have.property('cars');
-                    done();
-                });
-        });
-    })
+    it('has a route for getting a single user by id', (done) => {
+        chai.request(server)
+            .get('/user/' + vId)
+            .set({
+                token: vToken
+            })
+            .end((err, res) => {
+                res.should.have.status(200);
+                expect(res.body).to.have.property('info', 'here\'s your guy');
+                expect(res.body.data).to.have.property('id', vId);
+                expect(res.body.data).to.have.property('username', vuser);
+                expect(res.body.data.cars).to.be.an('array');
+                done();
+            });
+    });
+    it('returns an error when given an invalid ID', (done) => {
+        chai.request(server)
+            .get('/user/invalidId')
+            .set({
+                token: vToken
+            })
+            .end((err, res) => {
+                res.should.have.status(200);
+                expect(res.body).to.have.property('info', 'i don\'t know that guy');
+                expect(res.body).not.to.have.property('data');
+                expect(res.body).to.have.property('error');
+                done();
+            });
+    });
 });
 
 describe('user PUT', () => {
-    describe('when authorized', () => {
-        it('has a route editing a user', (done) => {
-            chai.request(server)
-                .put('/user/' + vId)
-                .set({
-                    token: vToken
-                })
-                .send({
-                    username: 'testUserEdited'
-                })
-                .end((err, res) => {
-                    res.should.have.status(200);
-                    expect(res.body).to.have.property('info', 'we rebuilt him');
-                    done();
-                });
-        });
-        it('returns an error when trying to edit a different user', (done) => {
-            chai.request(server)
-                .put('/user/' + anotherUser)
-                .set({
-                    token: vToken
-                })
-                .send({
-                    username: 'differentUser'
-                })
-                .end((err, res) => {
-                    res.should.have.status(403);
-                    expect(res.body).to.have.property('info', 'you can only edit yourself');
-                    done();
-                });
-        });
+    it('has a route editing a user', (done) => {
+        chai.request(server)
+            .put('/user/' + vId)
+            .set({
+                token: vToken
+            })
+            .send({
+                username: 'testUserEdited'
+            })
+            .end((err, res) => {
+                res.should.have.status(200);
+                expect(res.body).to.have.property('info', 'we rebuilt him');
+                done();
+            });
     });
-    describe('when not authorized', () => {
-        it('returns an error when trying to edit a user', (done) => {
-            chai.request(server)
-                .put('/user/' + vId)
-                .send({
-                    username: 'testUserEdited'
-                })
-                .end((err, res) => {
-                    res.should.have.status(403);
-                    expect(res.body).to.have.property('info', 'invalid token');
-                    expect(res.body).to.have.property('data');
-                    done();
-                });
-        });
+    it('returns an error when trying to edit a different user', (done) => {
+        chai.request(server)
+            .put('/user/' + anotherUser)
+            .set({
+                token: vToken
+            })
+            .send({
+                username: 'differentUser'
+            })
+            .end((err, res) => {
+                res.should.have.status(403);
+                expect(res.body).to.have.property('info', 'you can only edit yourself');
+                done();
+            });
     });
 });
 
 describe('user DELETE', () => {
-    describe('when not authorized', () => {
-        it('returns an error when trying to delete a user', (done) => {
-            chai.request(server)
-                .delete('/user/' + vId)
-                .end((err, res) => {
-                    res.should.have.status(403);
-                    expect(res.body).to.have.property('info', 'invalid token');
-                    done();
-                });
-        });
+    it('returns an error when deleting a different user', (done) => {
+        chai.request(server)
+            .delete('/user/' + anotherUser)
+            .set({
+                token: vToken
+            })
+            .end((err, res) => {
+                res.should.have.status(403);
+                expect(res.body).to.have.property('info', 'you cannot delete other users');
+                done();
+            });
     });
-    describe('when authorized', () => {
-        it('returns an error when deleting a different user', (done) => {
-            chai.request(server)
-                .delete('/user/' + anotherUser)
-                .set({
-                    token: vToken
-                })
-                .end((err, res) => {
-                    res.should.have.status(403);
-                    expect(res.body).to.have.property('info', 'you cannot delete other users');
-                    done();
-                });
-        });
-        it('has a route deleting a user', (done) => {
-            chai.request(server)
-                .delete('/user/' + vId)
-                .set({
-                    token: vToken
-                })
-                .end((err, res) => {
-                    res.should.have.status(200);
-                    expect(res.body).to.have.property('info', 'terminated user ' + vId);
-                    done();
-                });
-        });
+    it('has a route deleting a user', (done) => {
+        chai.request(server)
+            .delete('/user/' + vId)
+            .set({
+                token: vToken
+            })
+            .end((err, res) => {
+                res.should.have.status(200);
+                expect(res.body).to.have.property('info', 'terminated user ' + vId);
+                done();
+            });
     });
 });

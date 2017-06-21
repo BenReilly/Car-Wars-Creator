@@ -3,7 +3,6 @@
 const Suspension = require('../models/suspension.js');
 
 module.exports = function(app) {
-    const _suspensions = [];
 
     // read one suspension
     app.get('/suspensions/:vehicle/:suspensionType', (req, res) => {

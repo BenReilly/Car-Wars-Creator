@@ -20,7 +20,8 @@ let utils = require('./routes/route.util.js')(app),
     powerPlant = require('./routes/power-plant.js')(app),
     tires = require('./routes/tire.js')(app),
     tireMod = require('./routes/tire-mod.js')(app),
-    armor = require('./routes/armor.js')(app);
+    armor = require('./routes/armor.js')(app),
+    weapon = require('./routes/weapon.js')(app);
 
 if (!module.parent) {
     app.listen(config.port, function() {

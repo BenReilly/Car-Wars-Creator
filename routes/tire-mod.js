@@ -3,11 +3,9 @@
 const TireMod = require('../models/tire-mod.js');
 
 module.exports = function(app) {
-    const _tireMods = [];
 
     // read one tire
     app.get('/tire-mods/:mod', (req, res) => {
-        console.log(req.params.mod);
         TireMod.findOne({
                 'mod': req.params.mod
             })
