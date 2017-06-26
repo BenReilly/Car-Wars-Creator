@@ -20,6 +20,7 @@ let utils = require('./routes/route.util.js')(app),
     powerPlant = require('./routes/power-plant.js')(app),
     tires = require('./routes/tire.js')(app),
     tireMod = require('./routes/tire-mod.js')(app),
+    armorMod = require('./routes/armor-mod.js')(app),
     armor = require('./routes/armor.js')(app),
     weapon = require('./routes/weapon.js')(app);
 

@@ -9,8 +9,6 @@
         "maxLoad": 2300,
         "space": 7,
         "cargoSpace": 0,
-        "armorPrice": 11,
-        "armorWeight": 5,
         "hcModifier": 1
     }, {
         "vehicle": "car",
@@ -19,9 +17,7 @@
         "weight": 1300,
         "maxLoad": 3700,
         "space": 10,
-        "cargoSpace": 0,
-        "armorPrice": 13,
-        "armorWeight": 6
+        "cargoSpace": 0
     }, {
         "vehicle": "car",
         "type": "mid-sized",
@@ -29,9 +25,7 @@
         "weight": 1600,
         "maxLoad": 4800,
         "space": 13,
-        "cargoSpace": 0,
-        "armorPrice": 16,
-        "armorWeight": 8
+        "cargoSpace": 0
     }, {
         "vehicle": "car",
         "type": "sedan",
@@ -39,9 +33,7 @@
         "weight": 1700,
         "maxLoad": 5100,
         "space": 16,
-        "cargoSpace": 0,
-        "armorPrice": 18,
-        "armorWeight": 9
+        "cargoSpace": 0
     }, {
         "vehicle": "car",
         "type": "luxury",
@@ -49,9 +41,7 @@
         "weight": 1800,
         "maxLoad": 5500,
         "space": 19,
-        "cargoSpace": 0,
-        "armorPrice": 20,
-        "armorWeight": 10
+        "cargoSpace": 0
     }, {
         "vehicle": "car",
         "type": "station wagon",
@@ -59,9 +49,7 @@
         "weight": 1800,
         "maxLoad": 5500,
         "space": 14,
-        "cargoSpace": 7,
-        "armorPrice": 20,
-        "armorWeight": 10
+        "cargoSpace": 7
     }, {
         "vehicle": "car",
         "type": "pickup",
@@ -69,9 +57,7 @@
         "weight": 2100,
         "maxLoad": 6500,
         "space": 13,
-        "cargoSpace": 11,
-        "armorPrice": 22,
-        "armorWeight": 11
+        "cargoSpace": 11
     }, {
         "vehicle": "car",
         "type": "camper",
@@ -79,9 +65,7 @@
         "weight": 2300,
         "maxLoad": 6500,
         "space": 17,
-        "cargoSpace": 7,
-        "armorPrice": 30,
-        "armorWeight": 14
+        "cargoSpace": 7
     }, {
         "vehicle": "car",
         "type": "van",
@@ -90,8 +74,6 @@
         "maxLoad": 6000,
         "space": 24,
         "cargoSpace": 6,
-        "armorPrice": 30,
-        "armorWeight": 14,
         "hcModifier": -1
     }, {
         "vehicle": "bike",
@@ -100,9 +82,7 @@
         "weight": 250,
         "maxLoad": 800,
         "space": 4,
-        "cargoSpace": 0,
-        "armorPrice": 10,
-        "armorWeight": 4
+        "cargoSpace": 0
     }, {
         "vehicle": "bike",
         "type": "medium cycle",
@@ -110,9 +90,7 @@
         "weight": 300,
         "maxLoad": 1100,
         "space": 5,
-        "cargoSpace": 0,
-        "armorPrice": 11,
-        "armorWeight": 5
+        "cargoSpace": 0
     }, {
         "vehicle": "bike",
         "type": "heavy cycle",
@@ -120,9 +98,7 @@
         "weight": 350,
         "maxLoad": 1300,
         "space": 7,
-        "cargoSpace": 0,
-        "armorPrice": 12,
-        "armorWeight": 6
+        "cargoSpace": 0
     }, {
         "vehicle": "bike",
         "type": "light sidecar",
@@ -130,9 +106,7 @@
         "weight": 200,
         "maxLoad": 400,
         "space": 2,
-        "cargoSpace": 0,
-        "armorPrice": 5,
-        "armorWeight": 5
+        "cargoSpace": 0
     }, {
         "vehicle": "bike",
         "type": "heavy sidecar",
@@ -140,9 +114,7 @@
         "weight": 350,
         "maxLoad": 750,
         "space": 3,
-        "cargoSpace": 0,
-        "armorPrice": 5,
-        "armorWeight": 6
+        "cargoSpace": 0
     }, {
         "vehicle": "trike",
         "type": "light trike",
@@ -150,9 +122,7 @@
         "weight": 300,
         "maxLoad": 1600,
         "space": 8,
-        "cargoSpace": 0,
-        "armorPrice": 11,
-        "armorWeight": 5
+        "cargoSpace": 0
     }, {
         "vehicle": "trike",
         "type": "medium trike",
@@ -160,9 +130,7 @@
         "weight": 500,
         "maxLoad": 2100,
         "space": 10,
-        "cargoSpace": 0,
-        "armorPrice": 12,
-        "armorWeight": 6
+        "cargoSpace": 0
     }, {
         "vehicle": "trike",
         "type": "heavy trike",
@@ -170,9 +138,7 @@
         "weight": 700,
         "maxLoad": 2800,
         "space": 12,
-        "cargoSpace": 0,
-        "armorPrice": 14,
-        "armorWeight": 7
+        "cargoSpace": 0
     }, {
         "vehicle": "trike",
         "type": "extra-heavy trike",
@@ -180,8 +146,6 @@
         "weight": 950,
         "maxLoad": 3500,
         "space": 14,
-        "cargoSpace": 0,
-        "armorPrice": 16,
-        "armorWeight": 8
+        "cargoSpace": 0
     }]
 }

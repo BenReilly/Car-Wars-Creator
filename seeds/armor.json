@@ -2,39 +2,82 @@
     "collectionName": "armor",
     "pathToModel": "../models/armor",
     "content": [{
-        "armor": "fireproof",
-        "material": "plastic",
-        "price": 200,
-        "weight": 100,
-        "bonus": "cannot catch fire",
-        "repairPrice": 200
-    }, {
-        "armor": "laser-reflective",
-        "material": "plastic",
-        "price": 110,
-        "weight": 110,
-        "bonus": "half damage and no fire modifiers from lasers",
-        "repairPrice": 200
-    }, {
-        "armor": "laser-reflective fireproof",
-        "material": "plastic",
-        "price": 250,
-        "weight": 110,
-        "bonus": "half damage from lasers; cannot catch fire",
-        "repairPrice": 400
-    }, {
-        "armor": "metal",
-        "material": "metal",
-        "price": 250,
-        "weight": 500,
-        "bonus": "cannot catch fire; non-ablative",
-        "repairPrice": 100
-    }, {
-        "armor": "laser-reflective metal",
-        "material": "metal",
-        "price": 260,
-        "weight": 500,
-        "bonus": "half damage from lasers; cannot catch fire; non-ablative",
-        "repairPrice": 100
-    }]
+            "bodyType": "subcompact",
+            "price": 11,
+            "weight": 5
+        }, {
+            "bodyType": "compact",
+            "price": 13,
+            "weight": 6
+        }, {
+            "bodyType": "mid-sized",
+            "price": 16,
+            "weight": 8
+        }, {
+            "bodyType": "sedan",
+            "price": 18,
+            "weight": 9
+        }, {
+            "bodyType": "luxury",
+            "price": 20,
+            "weight": 10
+        }, {
+            "bodyType": "station wagon",
+            "price": 20,
+            "weight": 10
+        }, {
+            "bodyType": "pickup",
+            "price": 22,
+            "weight": 11
+        }, {
+            "bodyType": "camper",
+            "price": 30,
+            "weight": 14
+        }, {
+            "bodyType": "van",
+            "price": 30,
+            "weight": 14
+        },
+        {
+            "bodyType": "light cycle",
+            "price": 10,
+            "weight": 4
+        },
+        {
+            "bodyType": "medium cycle",
+            "price": 11,
+            "weight": 5
+        },
+        {
+            "bodyType": "heavy cycle",
+            "price": 12,
+            "weight": 6
+        },
+        {
+            "bodyType": "light sidecar",
+            "price": 5,
+            "weight": 5
+        },
+        {
+            "bodyType": "heavy sidecar",
+            "price": 5,
+            "weight": 6
+        }, {
+            "bodyType": "light trike",
+            "price": 11,
+            "weight": 5
+        }, {
+            "bodyType": "medium trike",
+            "price": 12,
+            "weight": 6
+        }, {
+            "bodyType": "heavy trike",
+            "price": 14,
+            "weight": 7
+        }, {
+            "bodyType": "extra-heavy trike",
+            "price": 16,
+            "weight": 9
+        }
+    ]
 }

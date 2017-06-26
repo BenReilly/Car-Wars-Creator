@@ -8,5 +8,24 @@ module.exports = {
     carFacing: ['f', 'r', 'l', 'b', 't', 'u'],
     tirePosition: ['fl', 'fr', 'bl', 'br'],
     bikeTirePosition: ['f', 'b'],
-    tireModSequence: ['steelbelting', 'radials', 'fireproofing']
+    tireModSequence: ['steelbelting', 'radials', 'fireproofing'],
+    bodyTypes: ['subcompact',
+        'compact',
+        'mid-sized',
+        'sedan',
+        'luxury',
+        'station wagon',
+        'pickup',
+        'camper',
+        'van',
+        'light cycle',
+        'medium cycle',
+        'heavy cycle',
+        'light sidecar',
+        'heavy sidecar',
+        'light trike',
+        'medium trike',
+        'heavy trike',
+        'extra-heavy trike'
+    ]
 }

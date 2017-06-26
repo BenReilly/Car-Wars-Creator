@@ -1,45 +1,36 @@
 'use strict';
 
 const mongoose = require('mongoose'),
-    config = require('../config'),
     ObjectId = mongoose.Schema.Types.ObjectId,
     Schema = mongoose.Schema;
 
-const BodyTypeSchema = new Schema({
-    vehicle: {
+const ArmorSchema = new Schema({
+    armor: {
         type: String,
         required: true,
-        enum: config.vehicles
+        enum: ['fireproof', 'laser-reflective fireproof', 'laser-reflective', 'laser-reflective metal', 'metal']
     },
-    type: {
+    material: {
         type: String,
         required: true,
-        enum: config.bodyTypes
-    },
-    price: {
-        type: Number,
-        required: true
+        enum: ['plastic', 'metal']
     },
     weight: {
         type: Number,
         required: true
     },
-    maxLoad: {
+    price: {
         type: Number,
         required: true
     },
-    space: {
-        type: Number,
+    bonus: {
+        type: String,
         required: true
     },
-    cargoSpace: {
+    repairPrice: {
         type: Number,
         required: true
-    },
-    hcModifier: {
-        type: Number,
-        required: false
     }
 });
 
-module.exports = mongoose.model('BodyType', BodyTypeSchema);
+module.exports = mongoose.model('Armor', ArmorSchema);
