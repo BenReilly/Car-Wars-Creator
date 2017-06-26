@@ -5,35 +5,43 @@
             "bodyType": "subcompact",
             "price": 11,
             "weight": 5
-        }, {
+        },
+        {
             "bodyType": "compact",
             "price": 13,
             "weight": 6
-        }, {
+        },
+        {
             "bodyType": "mid-sized",
             "price": 16,
             "weight": 8
-        }, {
+        },
+        {
             "bodyType": "sedan",
             "price": 18,
             "weight": 9
-        }, {
+        },
+        {
             "bodyType": "luxury",
             "price": 20,
             "weight": 10
-        }, {
+        },
+        {
             "bodyType": "station wagon",
             "price": 20,
             "weight": 10
-        }, {
+        },
+        {
             "bodyType": "pickup",
             "price": 22,
             "weight": 11
-        }, {
+        },
+        {
             "bodyType": "camper",
             "price": 30,
             "weight": 14
-        }, {
+        },
+        {
             "bodyType": "van",
             "price": 30,
             "weight": 14
