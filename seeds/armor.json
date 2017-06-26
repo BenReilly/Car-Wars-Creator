@@ -78,6 +78,11 @@
             "bodyType": "extra-heavy trike",
             "price": 16,
             "weight": 9
+        },
+        {
+            "bodyType": "wheelguards",
+            "price": 10,
+            "weight": 4
         }
     ]
 }

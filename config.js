@@ -26,6 +26,7 @@ module.exports = {
         'light trike',
         'medium trike',
         'heavy trike',
-        'extra-heavy trike'
+        'extra-heavy trike',
+        'wheelguards'
     ]
 }
